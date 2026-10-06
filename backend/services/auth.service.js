@@ -14,9 +14,7 @@ export async function createUser(body) {
     return newUser;
 }
 
-export async function login(body) {
-    console.log(body);
-    
+export async function login(body) {    
     const user = await getUserByEmailDAL(body.email);
     if (!user) throw errorHendler("האימייל או הסיסמה אינם נכונים.", 401);
     const token = generateToken(user)
