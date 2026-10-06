@@ -1,16 +1,20 @@
 import express from "express"
+import { createAlertCtrl, getAllAlertsCtrl, getAlertByIdCtrl, deletingAlertCtrl, updateAlertCtrl } from "../controllers/alerts.controller.js";
+
+
+
 
 const router = express.Router()
 
 
-router.get("/",)
+router.get("/", getAllAlertsCtrl)
 
-router.get("/:id")
+router.get("/:id", getAlertByIdCtrl)
 
-router.post("/",)
+router.post("/", createAlertCtrl)
 
-router.delete("/:id",)
+router.delete("/:id", deletingAlertCtrl)
 
-router.put("/:id",)
+router.put("/:id", updateAlertCtrl)
 
 export default router

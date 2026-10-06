@@ -1,0 +1,57 @@
+.page {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.map {
+    height: 100%;
+    width: 50%;
+    border: #5fa8d3 solid 2px;
+    margin: 10px;
+}
+
+.alertscard {
+    width: 50%;
+
+}
+
+.ul {
+    width: 50%;
+    overflow-y: scroll;
+    max-height: 600px;
+    border: 2px solid #5fa8d3;
+    margin: 10px;
+}
+
+.medium {
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #e3c65a;
+    list-style: none;
+}
+
+.critical {
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #ff4d4d;
+    list-style: none;
+}
+
+.low {
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #5fa8d3;
+    list-style: none;
+}
+
+.high {
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f08a3c;
+    list-style: none;
+}

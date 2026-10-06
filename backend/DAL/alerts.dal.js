@@ -1,6 +1,6 @@
 import { ObjectId } from "bson";
 import { db } from "../db/db.js";
-import { alertStructure } from "../services/utils/alert.model.js";
+import { alertStructure } from "../services/models/alert.model.js";
 
 const alerts = db.collection("alerts");
 
@@ -10,24 +10,24 @@ export async function getAllAlertsDAL() {
 }
 
 export async function getAlertByIdDAL(id) {
-    const alertFound = await alerts.findOne({ _id: ObjectId(id) });
+    const alertFound = await alerts.findOne({ _id: new ObjectId(id) });
     return alertFound;
 }
 
-export async function createAlertDAL({ displayname, description, priority, arena, status, lon, lat }) {
-    const user = alertStructure({ displayname, description, priority, arena, status, lon, lat });
-    const { insertedId } = await alerts.insertOne(user);
+export async function createAlertDAL({ displayName, description, priority, arena, status, lon, lat }) {
+    const alert = alertStructure({ displayName, description, priority, arena, status, lon, lat });
+    const { insertedId } = await alerts.insertOne(alert);
     user._id = insertedId
-    return user
+    return alert
 }
 
 export async function deletingAlertDAL(id) {
-    const deleted = await alerts.deleteOne({_id: ObjectId(id)});
+    const deleted = await alerts.deleteOne({_id: new ObjectId(id)});
     return deleted
 }
 
 
-export async function updateAlertDAL(id) {
-    const update = await alerts.updateOne({_id: ObjectId(id)})
+export async function updateAlertDAL(id, newData) {
+    const update = await alerts.updateOne({_id: new ObjectId(id)}, {$set: newData})
     return update
 }
